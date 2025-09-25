@@ -12,20 +12,23 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI dieUI;
 
+    [SerializeField]
+    InputReader _inputReader;
+
     private float playerTime;
     float addTime;
 
+    private void Start()
+    {
+        _inputReader.OnClickReset += Restart;
+    }
     void Update()
     {
         addTime += Time.deltaTime;
         playerTime = Mathf.Round(addTime);
         timeUI.text = $"Time : {playerTime}";
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            dieUI.gameObject.SetActive(false);
-            addTime = 0;
-        }
+        
 
         if (_player.isDie)
         {
@@ -37,5 +40,10 @@ public class UIManager : MonoBehaviour
         {
             dieUI.gameObject.SetActive(false);
         }
+    }
+    private void Restart()
+    {
+        dieUI.gameObject.SetActive(false);
+        addTime = 0;
     }
 }

@@ -108,6 +108,7 @@ public class GroundManager : MonoBehaviour
     private void OnReleasetGround(GameObject pfb)
     {
         pfb.SetActive(false);
+        pfb.transform.SetParent(this.transform);
     }
     private void OnDestroyGround(GameObject pfb)
     {
@@ -178,27 +179,21 @@ public class GroundManager : MonoBehaviour
 
     public void ResetPool()
     {
-
-        for (int i = 0; i < _platQueue.Count; i++)
+        while (_platQueue.Count > 0)
         {
-            GameObject temp = _platQueue.Dequeue();
-
+            var temp = _platQueue.Dequeue();
             if (temp.CompareTag("Hole"))
-            {
                 _holePool.Release(temp);
-            }
             else if (temp.CompareTag("Obstarcle"))
-            {
                 _obstaclePool.Release(temp);
-            }
         }
-        for (int i = 0; i < _bgQueue.Count; i++)
+
+        while (_bgQueue.Count > 0)
         {
-            GameObject temp = _bgQueue.Dequeue();
+            var temp = _bgQueue.Dequeue();
             _bgPool.Release(temp);
         }
 
-       
-        
+        _coolTime = 0;
     }
 }

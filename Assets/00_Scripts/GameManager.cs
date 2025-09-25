@@ -8,19 +8,21 @@ public class GameManager : MonoBehaviour
     GroundManager _groundMap;
     [SerializeField]
     GameObject _player;
+
+    [SerializeField]
+    InputReader _inputReader;
+
     private Vector3 _playerFirsPos;
+
+
     public void Start()
     {
         _playerFirsPos = _player.transform.position;
+        _inputReader.OnClickReset += ResetGround;
 
     }
-    public void Update()
-    {
-        if(Input.GetKeyUp(KeyCode.R))
-        {
-            ResetGround();
-        }
-    }
+  
+
     private void ResetGround()
     {
         _firstMap.transform.position = Vector3.zero;
