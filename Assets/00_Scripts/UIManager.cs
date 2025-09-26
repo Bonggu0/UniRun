@@ -26,17 +26,15 @@ public class UIManager : MonoBehaviour
     {
         addTime += Time.deltaTime;
         playerTime = Mathf.Round(addTime);
-        timeUI.text = $"Time : {playerTime}";
+        timeUI.text = $"HP : { _player.HP } Time : {playerTime}";
 
-        
-
-        if (_player.isDie)
+        if (_player.IsDie)
         {
             dieUI.gameObject.SetActive(true);
             addTime = 0;
         }
 
-        if (!_player.isDie)
+        if (!_player.IsDie)
         {
             dieUI.gameObject.SetActive(false);
         }

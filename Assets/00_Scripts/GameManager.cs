@@ -19,10 +19,7 @@ public class GameManager : MonoBehaviour
     {
         _playerFirsPos = _player.transform.position;
         _inputReader.OnClickReset += ResetGround;
-
     }
-  
-
     private void ResetGround()
     {
         _firstMap.transform.position = Vector3.zero;
@@ -35,8 +32,8 @@ public class GameManager : MonoBehaviour
         gruond.moveSpeed = -4f;
 
         PlayerController player = _player.GetComponent<PlayerController>();
-        player.isDie = false;
-        player.isGround = true;
+        player.IsDie = false;
+        player.IsGround = true;
         
     }
 }

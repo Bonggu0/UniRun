@@ -10,7 +10,7 @@ public class JumpState : IAnimation
 
     public void Enter()
     {
-        _controller.isJump = false;
+        _controller.IsJump = false;
     }
     public void Update()
     {
@@ -19,13 +19,13 @@ public class JumpState : IAnimation
 
     public EState Exit()
     {
-        if (_controller.isDie)
+        if (_controller.IsDie)
         {
             return EState.DIE;
         }
-        else if (_controller.isGround == true)
+        else if (_controller.IsGround == true)
         {
-            _controller.rb.AddForce(Vector2.down * 200);
+            _controller._rb.AddForce(Vector2.down * 200);
             return EState.RUN;
         }
         else return EState.JUMP;

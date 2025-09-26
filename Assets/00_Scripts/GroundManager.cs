@@ -12,6 +12,8 @@ public class GroundManager : MonoBehaviour
     private GameObject _obstacle;
     [SerializeField]
     private GameObject _bg;
+    [SerializeField]
+    private InputReader _reader;
 
     ObjectMovement _mapMove;
     [SerializeField]
@@ -24,7 +26,6 @@ public class GroundManager : MonoBehaviour
 
     private Queue<GameObject> _platQueue;
     private Queue<GameObject> _bgQueue;
-
 
     private float _coolTime = 0f;
 
@@ -62,13 +63,13 @@ public class GroundManager : MonoBehaviour
             3,
             50
         );
+        _reader.OnClickReset += ResetPool;
     }
     void Update()
     {
-        _coolTime += Time.deltaTime;
-
-        if (!_controller.isDie)
+        if (!_controller.IsDie)
         {
+            _coolTime += Time.deltaTime;
             if (_coolTime > 2.5f)
             {
                 SpawnNextGruond();

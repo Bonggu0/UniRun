@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7354292574371037837}
   - component: {fileID: 5494274621365985806}
   - component: {fileID: 1978090186165294786}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Obstacle
-  m_TagString: Die
+  m_TagString: Damaged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

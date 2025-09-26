@@ -19,7 +19,7 @@ public class DeadState : IAnimation
 
     public EState Exit()
     {
-        if (_controller.isDie)
+        if (_controller.IsDie)
         {
             return EState.DIE;
         }

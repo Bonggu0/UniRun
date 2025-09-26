@@ -19,11 +19,11 @@ public class RunState : IAnimation
 
     public EState Exit()
     {
-        if(_controller.isDie)
+        if(_controller.IsDie)
         {
             return EState.DIE;
         }
-        else if (_controller.isJump)
+        else if (_controller.IsJump)
         {
             return EState.JUMP;
         }
